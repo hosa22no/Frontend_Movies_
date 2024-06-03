@@ -1,0 +1,40 @@
+body {
+    background: linear-gradient(135deg, #094917, #98FF98);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+header {
+    background-color: #094917;
+    padding: 20px;
+    color: #fff;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #98FF98;
+}
+
+header a:active {
+    animation: linkAnimation 0.5s;
+}
+
+@keyframes linkAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
