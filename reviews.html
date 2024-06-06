@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reviews.css">
 </head>
 <body>
     <header>
@@ -14,7 +14,46 @@
         <a href="login.html">Logga in</a>
     </header>
     <h2>Reviews page</h2></p>
-    <footer> Sidan gjord av Sanna Höglund &copy; 2024</footer>
-    <script src="/scripts/script.js"></script>
+    <form id="add-review-form">
+        <h2>Add a Review</h2>
+        <input type="text" id="add-title" placeholder="Titel" required>
+        <input type="number" id="add-rating" placeholder="Rating (1-5)" required min="1" max="5">
+        <input type="text" id="add-comment" placeholder="Comment" required></textarea>
+        <input type="number" id="add-movie-id" placeholder="Movie ID" required>
+        <button type="submit">Add Review</button>
+        <button type="button" id="update-review-button">Update Review</button>
+        
+    </form>
+    <h2>Delete a review by id</h2>
+    <button type="button" id="delete-review-button">Delete Review</button>
+    <form id="update-review-form">
+        <h2>Update a Review</h2>
+        <input type="text" id="update-review-id" placeholder="Review ID" required>
+    <input type="number" id="update-review-rating" placeholder="New Rating" min="1" max="5">
+    <input type="text" id="update-review-comment" placeholder="New Comment">
+    <input type="number" id="update-movie-id" placeholder="Movie ID" required>
+    <input type="text" id="update-movie-title" placeholder="New Movie Title">
+        <button type="submit">Update Review</button>
+    </form>
+
+    <h2>All Reviews</h2>
+<div id="all-reviews-list"></div>
+
+    <h2>My Reviews</h2>
+    <ul id="my-reviews-list"></ul>
+
+    <div>
+        <h3>Get Review by ID</h3>
+        <input type="number" id="review-id-input" placeholder="Enter Review ID">
+        <button id="get-review-button">Get Review</button>
+    </div>
+    
+    <div>
+        <h3>Review Details</h3>
+        <ul id="review-details-list"></ul>
+    </div>
+
+    <div id="reviews-output"></div>
+    <script src="/scripts/reviews.js"></script>
 </body>
 </html>

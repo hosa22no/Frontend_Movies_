@@ -12,19 +12,24 @@
     <a href="index.html">Hem</a>
     <a href="movies.html">Filmer</a>
     <a href="reviews.html">Recensioner</a>
-    <a href="login.html">Logga in</a>
+    <a href="login.html">Inloggningssidan</a>
 </header>
 <h1>Logga in</h1>
 
 <form id="login-form">
-    <input type="text" id="email" placeholder="Email-adress">
-    <input type="password" id="password" placeholder="Lösenord">
+    <input type="text" id="email" placeholder="Email-adress" required>
+    <input type="password" id="password" placeholder="Lösenord" required>
     <button type="submit" value="Login">Logga in</button>
 </form>
+<form id="register-form">
+    <input type="email" id="email-register" placeholder="Email" required>
+    <input type="password" id="password-register" placeholder="Password" required>
+    <button type="submit">Registrera användare</button>
+</form>
+
 
 <pre id="output"></pre>
 
-    <footer> Sidan gjord av Sanna Höglund &copy; 2024</footer>
     <script src="/scripts/script.js"></script>
    
 </body>

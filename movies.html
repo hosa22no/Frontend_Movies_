@@ -4,17 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="movies.css">
 </head>
 <header>
-    <a href="">Hem</a>
+    <a href="index.html">Hem</a>
     <a href="movies.html">Filmer</a>
     <a href="reviews.html">Recensioner</a>
-    <a href="login.html">Logga in</a>
+    <a href="login.html">Inloggningssidan</a>
 </header>
 <body>
     <h2>Movies page</h2></p>
-    <footer> Sidan gjord av Sanna Höglund &copy; 2024</footer>
-    <script src="/scripts/script.js"></script>
+    <form id="add-movie-form">
+        <h2>Add a Movie</h2>
+        <input type="text" id="add-title" placeholder="Title" required>
+        <input type="number" id="add-year" placeholder="Year" required>
+        <input type="text" id="add-description" placeholder="Description" required></textarea>
+        <button type="submit">Add Movie</button>
+    </form>
+
+    <form id="get-movie-form">
+        <h2>Get a Movie</h2>
+        <input type="text" id="get-id" placeholder="Movie ID" required>
+        <button type="submit">Get Movie</button>
+    </form>
+
+    <button id="get-all-movies-button">Get All Movies</button>
+
+    <form id="update-movie-form">
+        <h2>Update a Movie</h2>
+        <input type="text" id="update-id" placeholder="Movie ID" required>
+        <input type="text" id="update-title" placeholder="New Title">
+        <input type="number" id="update-year" placeholder="New Year">
+        <input type="text" id="update-description" placeholder="New Description"></textarea>
+        <button type="submit">Update Movie</button>
+    </form>
+
+    <form id="delete-movie-form">
+        <h2>Delete a Movie</h2>
+        <input type="text" id="delete-id" placeholder="Movie ID" required>
+        <button type="submit">Delete Movie</button>
+    </form>
+
+    <pre id="output"></pre>
+
+    <script src="scripts/movies.js"></script>
 </body>
 </html>
