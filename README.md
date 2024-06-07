@@ -18,7 +18,7 @@ Uppdatera en film [x]
 Ta bort en film [x]
 ## Recensioner 
 Lägg till en recension [x]
-Hämta en recension []
+Hämta en recension [x]
 Hämta alla recensioner [x]
 Uppdatera en recension [x]
 Ta bort en recension [x]

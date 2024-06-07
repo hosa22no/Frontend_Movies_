@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend till Movies/Reviews API</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    
-<header>
-    <a href="index.html">Hem</a>
-    <a href="movies.html">Filmer</a>
-    <a href="reviews.html">Recensioner</a>
-    <a href="login.html">Inloggningssidan</a>
-</header>
-<h1>Logga in</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="movies.html">Filmer</a></li>
+            <li><a href="reviews.html">Recensioner</a></li>
+            <li><a href="login.html">Inloggningssidan</a></li>
+        </ul>
+    </nav>
+    <div class="card">
+        <!--Log in and registration forms-->
+        <h1>Logga in</h1>
 
-<form id="login-form">
-    <input type="text" id="email" placeholder="Email-adress" required>
-    <input type="password" id="password" placeholder="Lösenord" required>
-    <button type="submit" value="Login">Logga in</button>
-</form>
-<form id="register-form">
-    <input type="email" id="email-register" placeholder="Email" required>
-    <input type="password" id="password-register" placeholder="Password" required>
-    <button type="submit">Registrera användare</button>
-</form>
+        <form id="login-form">
+            <input type="text" id="email" placeholder="Email-adress" required />
+            <input type="password" id="password" placeholder="Lösenord" required />
+            <button type="submit" value="Login">Logga in</button>
+        </form>
+        <h3>Registrera ny användare</h3>
+        <form id="register-form">
+            <input type="email" id="email-register" placeholder="Email" required />
+            <input type="password" id="password-register" placeholder="Password" required />
+            <button type="submit">Registrera användare</button>
+            <div id="logout"></div>
+        </form>
+        <section class="content">
+         <!--Output to interact with the user-->
+            <div id="output"></div>
+        </section>
+    </div>
 
 
-<pre id="output"></pre>
+    </div>
 
     <script src="/scripts/script.js"></script>
-   
 </body>
+
 </html>

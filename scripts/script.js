@@ -1,9 +1,17 @@
+// Fetchin login and registration data from the API
 const API_URL = 'https://localhost:44352';
 const LOGIN_URL = `${API_URL}/login`;
 const REGISTER_URL = `${API_URL}/register`;
 
+
+// Event listeners for login and registration forms
 document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (localStorage.getItem('token')) {
+        document.getElementById('output').textContent = 'En användare är redan inloggad. Logga ut först.';
+        return;
+    }
 
     try {
         const email = document.getElementById('email').value;
@@ -34,7 +42,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     }
 });
 
-
+// Login and registration functions
 async function login(email, password) {
     const response = await fetch(LOGIN_URL, {
         method: 'POST',
@@ -68,7 +76,7 @@ async function register(email, password) {
         throw new Error(message);
     }
 
-    document.getElementById('output').textContent = "Registration successful. Please log in.";
+    document.getElementById('output').textContent = "Registrering lyckades. Nu kan du logga in.";
 }
 
 
@@ -77,12 +85,14 @@ function displayLoginMessage(email) {
     document.getElementById('output').textContent = `Du är inloggad med e-postadressen: ${email}`;
 }
 
+// When logged in, show logout button
 function showLogoutButton() {
     const logoutButton = document.createElement('button');
     logoutButton.textContent = 'Logga ut';
     logoutButton.id = 'logout-button';
-    document.body.appendChild(logoutButton);
-
+   
+    const logoutDiv = document.getElementById('logout'); 
+    logoutDiv.appendChild(logoutButton);
     logoutButton.addEventListener('click', () => {
         logout();
     });
@@ -98,7 +108,7 @@ function logout() {
     }
 }
 
-// Kontrollera inloggningstillstånd vid sidladdning
+// Check if user is already logged in
 window.addEventListener('load', () => {
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
@@ -108,68 +118,3 @@ window.addEventListener('load', () => {
     }
 });
 
-
-
-
-
-/*The API url:s :
-
-const API_URL = 'https://localhost:44352';
-const LOGIN_URL = `${API_URL}/login`;
-const REGISTER_URL = `${API_URL}/register`;
-
-document.getElementById('login-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    try {
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const token = await login(email, password);
-        await fetchAndDisplayMovies(token);
-       
-        
-    }
-    catch (error) {
-        console.log(error)
-        document.getElementById('output').textContent = error.message;
-
-    }
-})
-
-async function login(email, password) {
-    const response = await fetch(LOGIN_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
-        const data = await response.json();
-        return data.accessToken;
-    } else {
-        const { message } = await response.json();
-        throw new Error(message);
-    }
-}
-
-
-// Movies URL:s
-const MOVIES_URL = `${API_URL}/api/Movie`;
-
-async function fetchAndDisplayMovies(token) {
-    const response = await fetch(MOVIES_URL, {
-        headers: {
-            Authorization: `Bearer ${token}`	
-        }
-    });
-
-    if (!response.ok) {
-        throw new Error('Failed to load movies');
-    }
-
-    const movies = await response.json();
-    document.getElementById('output').textContent = JSON.stringify(movies);
-}
-*/

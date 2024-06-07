@@ -1,3 +1,4 @@
+// Fetching the movies from the api
 const API_URL = 'https://localhost:44352';
 const MOVIES_URL = `${API_URL}/api/Movie`;
 
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputElement = document.getElementById('output');
 
    
-
+// Event listeners for movie forms
     document.getElementById('add-movie-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const title = document.getElementById('add-title').value;
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         await deleteMovie(token, id);
     });
 });
-
+// Function to add a movie to the api
 async function addMovie(token, movie) {
     try {
         const response = await fetch(MOVIES_URL, {
@@ -65,6 +66,7 @@ async function addMovie(token, movie) {
         document.getElementById('output').textContent = error.message;
     }
 }
+// Function to get a movie by their id from the api
 async function getMovie(token, id) {
     try {
         const response = await fetch(`${MOVIES_URL}/${id}`, {
@@ -86,16 +88,7 @@ async function getMovie(token, id) {
         document.getElementById('output').textContent = error.message;
     }
 }
-/*async function getMovie(token, id) {
-    const response = await fetch(`${MOVIES_URL}/${id}`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    });
-    const result = await response.json();
-    document.getElementById('output').textContent = JSON.stringify(result, null, 2);
-}*/
+// Function to get all movies from the api
 
 async function getAllMovies(token) {
     const response = await fetch(MOVIES_URL, {
@@ -107,9 +100,11 @@ async function getAllMovies(token) {
     const movies = await response.json();
     displayMovies(movies);
 }
+
+// Function to display movies in a list format
 function displayMovies(movies) {
     const outputElement = document.getElementById('output');
-    outputElement.innerHTML = ''; // Rensa output-elementet först
+    outputElement.innerHTML = ''; 
 
     if (movies.length === 0) {
         outputElement.textContent = 'No movies found.';
@@ -125,7 +120,7 @@ function displayMovies(movies) {
     outputElement.appendChild(ul);
 }
 
-
+// Function to update a movie in the api
 async function updateMovie(token, id, movie) {
     try {
         const response = await fetch(`${MOVIES_URL}/${id}`, {
@@ -150,7 +145,7 @@ async function updateMovie(token, id, movie) {
     }
 }
 
-
+// Function to delete a movie from the api
 async function deleteMovie(token, id) {
     const response = await fetch(`${MOVIES_URL}/${id}`, {
         method: 'DELETE',

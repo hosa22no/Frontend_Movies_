@@ -4,56 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews</title>
-    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html">Hem</a>
-        <a href="movies.html">Filmer</a>
-        <a href="reviews.html">Recensioner</a>
-        <a href="login.html">Logga in</a>
-    </header>
-    <h2>Reviews page</h2></p>
-    <form id="add-review-form">
-        <h2>Add a Review</h2>
-        <input type="text" id="add-title" placeholder="Titel" required>
-        <input type="number" id="add-rating" placeholder="Rating (1-5)" required min="1" max="5">
-        <input type="text" id="add-comment" placeholder="Comment" required></textarea>
-        <input type="number" id="add-movie-id" placeholder="Movie ID" required>
-        <button type="submit">Add Review</button>
-        <button type="button" id="update-review-button">Update Review</button>
-        
-    </form>
-    <h2>Delete a review by id</h2>
-    <button type="button" id="delete-review-button">Delete Review</button>
-    <form id="update-review-form">
-        <h2>Update a Review</h2>
-        <input type="text" id="update-review-id" placeholder="Review ID" required>
-    <input type="number" id="update-review-rating" placeholder="New Rating" min="1" max="5">
-    <input type="text" id="update-review-comment" placeholder="New Comment">
-    <input type="number" id="update-movie-id" placeholder="Movie ID" required>
-    <input type="text" id="update-movie-title" placeholder="New Movie Title">
-        <button type="submit">Update Review</button>
-    </form>
-
-    <h2>All Reviews</h2>
-<div id="all-reviews-list"></div>
-
-    <h2>My Reviews</h2>
-    <ul id="my-reviews-list"></ul>
-
-    <div>
-        <h3>Get Review by ID</h3>
-        <input type="number" id="review-id-input" placeholder="Enter Review ID">
-        <button id="get-review-button">Get Review</button>
-    </div>
+    <nav>
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="movies.html">Filmer</a></li>
+          <li><a href="reviews.html">Recensioner</a></li>
+          <li><a href="login.html">Inloggningssidan</a></li>
+        </ul>
+      </nav>
+     
+     
+      <div class="card">
+        <h1>Recensioner</h1>
+   
     
-    <div>
-        <h3>Review Details</h3>
+    <form id="add-review-form">
+        <h3>Lägg till recension</h3>
+        <input type="text" id="add-title" placeholder="Titel" required>
+        <input type="number" id="add-rating" placeholder="Betyg (1-5)" required min="1" max="5">
+        <input type="text" id="add-comment" placeholder="Kommentar" required></textarea>
+        <input type="number" id="add-movie-id" placeholder="Film ID" required>
+        <button type="submit">Add Review</button>
+        
+        </form>
+   <section class="content">
+    <h2>Ta bort en recension med ID</h2>
+    <button type="button" id="delete-review-button">Delete Review</button>
+</section>
+    <form id="update-review-form">
+        <h2>Updatera en recension</h2>
+        <input type="text" id="update-review-id" placeholder="Review ID" required>
+    <input type="number" id="update-review-rating" placeholder="Nytt betyg" min="1" max="5">
+    <input type="text" id="update-review-comment" placeholder="Ny kommentar">
+    <input type="number" id="update-movie-id" placeholder="Movie ID" required>
+    <input type="text" id="update-movie-title" placeholder="Ny titel">
+        <button type="submit">Updatera Recension</button>
+    </form></section>
+    <section class="content">
+    <h2>Alla Recensioner</h2>
+<div id="all-reviews-list"></div>
+</section>
+<section class="content">
+    <h2>Mina recensioner</h2>
+    <ul id="my-reviews-list"></ul>
+</section>
+<section class="content">
+        <h3>Hitta recension med ID</h3>
+        <input type="number" id="review-id-input" placeholder="Skriv in Review ID">
+        <button id="get-review-button">Hämta Recension</button>
+    
         <ul id="review-details-list"></ul>
-    </div>
+    </section>
 
     <div id="reviews-output"></div>
+    </div>
+</div>
+
     <script src="/scripts/reviews.js"></script>
 </body>
 </html>

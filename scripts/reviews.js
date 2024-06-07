@@ -1,5 +1,9 @@
+// Fetching the reviews from the api
 const API_URL = 'https://localhost:44352';
 const REVIEWS_URL = `${API_URL}/api/Review`;
+
+
+// Event listeners for review form
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add-review-form').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -9,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const movieId = document.getElementById('add-movie-id').value;
         await addReview({ title, rating, comment, movieId });
     });
-
+// Event listeners for update and delete review buttons
     document.getElementById('update-review-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const reviewId = document.getElementById('update-review-id').value;
@@ -21,15 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
-   /* document.getElementById('update-review-button').addEventListener('click', async () => {
-        const title = document.getElementById('add-title').value;
-        const rating = document.getElementById('add-rating').value;
-        const comment = document.getElementById('add-comment').value;
-        const movieId = document.getElementById('add-movie-id').value;
-        const reviewId = prompt("Enter the ID of the review you want to update:");
-        await updateReview(reviewId, { title, rating, comment, movieId });
-    });*/
-
     document.getElementById('delete-review-button').addEventListener('click', async () => {
         const reviewId = prompt("Enter the ID of the review you want to delete:");
         await deleteReview(reviewId);
@@ -39,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getAllReviews();
 });
 
+// Event listeners for get review by ID button
 document.getElementById('get-review-button').addEventListener('click', async () => {
     const reviewId = document.getElementById('review-id-input').value;
     if (reviewId) {
@@ -48,7 +44,7 @@ document.getElementById('get-review-button').addEventListener('click', async () 
     }
 });
 
-
+// Review functions for fetching, adding, updating, and deleting reviews
 async function addReview(review) {
     const token = localStorage.getItem('token');
     const response = await fetch(REVIEWS_URL, {
@@ -85,26 +81,6 @@ async function updateReview(reviewId, reviewData) {
         alert('Failed to update review.');
     }
 }
-
-/*
-async function updateReview(reviewId, reviewData) {
-    const token = localStorage.getItem('token');
-    const response = await fetch(`${REVIEWS_URL}/${reviewId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(reviewData)
-    });
-    if (response.ok) {
-        alert('Review updated successfully.');
-        getMyReviews(); // Refresh my reviews after update
-    } else {
-        alert('Failed to update review.');
-    }
-}
-*/
 async function deleteReview(reviewId) {
     const token = localStorage.getItem('token');
     const response = await fetch(`${REVIEWS_URL}/${reviewId}`, {
@@ -142,26 +118,7 @@ async function getAllReviews() {
     displayAllReviews(reviews);
 }
 
-
-
-/*function displayReviews(reviews) {
-    const outputElement = document.getElementById('reviews-output');
-    outputElement.innerHTML = '';
-
-    if (reviews.length === 0) {
-        outputElement.textContent = 'No reviews found.';
-        return;
-    }
-
-    const ul = document.createElement('ul');
-    reviews.forEach(review => {
-        const li = document.createElement('li');
-        li.textContent = `Review ID: ${review.reviewId}, Movie Title: ${review.movieTitle}, Rating: ${review.rating}, Comment: ${review.comment}`;
-        ul.appendChild(li);
-    });
-    outputElement.appendChild(ul);
-}
-*/
+// Display the logged in users reviews
 function displayMyReviews(reviews) {
     const listElement = document.getElementById('my-reviews-list');
     listElement.innerHTML = '';
@@ -179,7 +136,7 @@ function displayMyReviews(reviews) {
         listElement.appendChild(li);
     });
 }
-
+// Display all reviews
 function displayAllReviews(reviews) {
     const outputElement = document.getElementById('all-reviews-list');
     outputElement.innerHTML = '';
@@ -198,6 +155,7 @@ function displayAllReviews(reviews) {
     outputElement.appendChild(ul);
 }
 
+// Get review by ID
 async function getReviewById(reviewId) {
     try {
         const response = await fetch(`${REVIEWS_URL}/${reviewId}`);
@@ -213,6 +171,7 @@ async function getReviewById(reviewId) {
     }
 }
 
+// Display review details
 function displayReviewDetails(review) {
     const outputElement = document.getElementById('review-details-list');
     outputElement.innerHTML = '';

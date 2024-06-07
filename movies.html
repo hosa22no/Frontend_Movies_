@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies</title>
-    <link rel="stylesheet" href="movies.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<header>
-    <a href="index.html">Hem</a>
-    <a href="movies.html">Filmer</a>
-    <a href="reviews.html">Recensioner</a>
-    <a href="login.html">Inloggningssidan</a>
-</header>
 <body>
-    <h2>Movies page</h2></p>
+<nav>
+    <ul>
+      <li><a href="index.html">Hem</a></li>
+      <li><a href="movies.html">Filmer</a></li>
+      <li><a href="reviews.html">Recensioner</a></li>
+      <li><a href="login.html">Inloggningssidan</a></li>
+    </ul>
+  </nav>
+
+    <div class="card">
+        <h1>Filmer</h1></p>
+       
+   
     <form id="add-movie-form">
-        <h2>Add a Movie</h2>
+        <h2>Lägg till film</h2>
         <input type="text" id="add-title" placeholder="Title" required>
         <input type="number" id="add-year" placeholder="Year" required>
         <input type="text" id="add-description" placeholder="Description" required></textarea>
         <button type="submit">Add Movie</button>
     </form>
 
+       
     <form id="get-movie-form">
-        <h2>Get a Movie</h2>
+        <h2>Hämta en film</h2>
         <input type="text" id="get-id" placeholder="Movie ID" required>
         <button type="submit">Get Movie</button>
     </form>
-
-    <button id="get-all-movies-button">Get All Movies</button>
+    
 
     <form id="update-movie-form">
         <h2>Update a Movie</h2>
@@ -44,8 +50,11 @@
         <input type="text" id="delete-id" placeholder="Movie ID" required>
         <button type="submit">Delete Movie</button>
     </form>
-
-    <pre id="output"></pre>
+    <section class="content">
+    <button id="get-all-movies-button">Get All Movies</button>
+    </section>
+    <div id="output"></div>
+</div>
 
     <script src="scripts/movies.js"></script>
 </body>
